@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Flex, ScrollContainer, Text } from "@ledgerhq/native-ui";
+import { Flex, Icons, ScrollContainer, Text } from "@ledgerhq/native-ui";
 import { Categories } from "@ledgerhq/live-common/wallet-api/react";
 
 export function CatalogSection({
@@ -10,30 +10,41 @@ export function CatalogSection({
 }) {
   const { t } = useTranslation();
 
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
-    <Flex backgroundColor="background.main">
-      <Text variant={"h4"} fontWeight={"semiBold"} marginBottom={16} marginLeft={16}>
-        {t("browseWeb3.catalog.section.categories")}
-      </Text>
+    <Flex backgroundColor="background.main" paddingY={3}>
       <ScrollContainer paddingLeft={16} horizontal showsHorizontalScrollIndicator={false}>
         {categories.map((value: string, index) => (
           <Flex
             key={index}
             marginRight={index === categories.length - 1 ? 8 : 4}
-            borderBottomColor={value === selected ? "neutral.c100" : "neutral.c50"}
-            borderBottomWidth={value === selected ? 3 : 0}
-            paddingBottom={2}
+            bg={value === selected ? "opacityDefault.c05" : "transparent"}
+            paddingX={4}
+            paddingY={2}
+            borderRadius="100px"
+            flexDirection="row"
+            alignItems="center"
+            columnGap={8}
           >
+            <Icons.LedgerLogo
+              color={value === selected ? "primary.c80" : "opacityDefault.c70"}
+              size="S"
+            />
             <Text
-              color={value === selected ? "neutral.c100" : "neutral.c50"}
+              color={value === selected ? "primary.c80" : "opacityDefault.c70"}
               onPress={() => {
                 setSelected(value);
               }}
               fontSize={15}
               fontWeight="semiBold"
-              variant={"subtitle"}
+              variant="body"
             >
-              {value === "all" ? t("discover.sections.filter.all") : value}
+              {value === "all"
+                ? capitalizeFirstLetter(t("discover.sections.filter.all"))
+                : capitalizeFirstLetter(value)}
             </Text>
           </Flex>
         ))}

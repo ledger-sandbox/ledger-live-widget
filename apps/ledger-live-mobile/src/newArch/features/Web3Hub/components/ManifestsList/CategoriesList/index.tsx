@@ -1,5 +1,4 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useRef, useEffect } from "react";
 import { FlashList } from "@shopify/flash-list";
 import { Box } from "@ledgerhq/native-ui";
 import { Category } from "LLM/features/Web3Hub/utils/api/categories";
@@ -29,26 +28,41 @@ const renderItem = ({
 };
 
 export default function CategoriesList({ selectedCategory, selectCategory }: Props) {
-  const { data, extraData } = useCategoriesListViewModel({ selectedCategory, selectCategory });
+  const { data } = useCategoriesListViewModel({
+    selectedCategory,
+    selectCategory,
+  });
+
+  const flashListRef = useRef<FlashList<Category>>(null);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      const selectedIndex = data?.findIndex(category => category.id === selectedCategory);
+
+      if (selectedIndex !== undefined && selectedIndex !== -1 && flashListRef.current) {
+        setTimeout(() => {
+          flashListRef.current?.scrollToIndex({
+            index: selectedIndex,
+            viewPosition: 0,
+            animated: true,
+          });
+        }, 0);
+      }
+    }
+  }, [selectedCategory, data]);
 
   return (
     <FlashList
       testID="web3hub-categories-scroll"
       horizontal
-      contentContainerStyle={styles.container}
       keyExtractor={identityFn}
       renderItem={renderItem}
-      ListEmptyComponent={<Box height={32} />} // Empty box for first height calculation, could be improved
+      ListEmptyComponent={<Box height={32} />}
       estimatedItemSize={50}
       data={data}
       showsHorizontalScrollIndicator={false}
-      extraData={extraData}
+      extraData={{ selectedCategory, selectCategory }}
+      ref={flashListRef}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 5,
-  },
-});

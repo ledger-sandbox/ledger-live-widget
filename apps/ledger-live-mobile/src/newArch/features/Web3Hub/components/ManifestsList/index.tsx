@@ -75,7 +75,7 @@ export default function ManifestsList({
         ListHeaderComponent={
           <>
             {headerComponent}
-            <View style={{ height: 32, marginBottom: 2 }}>
+            <View style={{ height: 32, marginBottom: 2, marginLeft: 16 }}>
               <CategoriesList selectedCategory={selectedCategory} selectCategory={selectCategory} />
             </View>
           </>

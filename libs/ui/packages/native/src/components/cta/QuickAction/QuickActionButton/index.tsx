@@ -29,13 +29,13 @@ export const Base = baseStyled(TouchableOpacity)<
   text-align: center;
   align-items: center;
   justify-content: center;
-  border-radius: ${(p) => p.theme.radii[2]}px;
+  border-radius: ${(p) => p.theme.space[4]}px;
   padding: ${({ theme, variant }) =>
-    variant === "small" ? `${theme.space[3]}px ${theme.space[2]}px` : `0 ${theme.space[6]}px`};
+    variant === "small" ? `${theme.space[3]}px ${theme.space[4]}px` : `0 ${theme.space[4]}px`};
   ${({ visuallyDisabled, theme }) =>
     visuallyDisabled
       ? `border: 1px solid ${theme.colors.neutral.c30};`
-      : `background-color: ${theme.colors.neutral.c20};`}
+      : `background-color: ${theme.colors.opacityDefault.c05};`}
 `;
 
 const QuickActionButton = ({
@@ -69,6 +69,7 @@ const QuickActionButton = ({
       <StyledText
         numberOfLines={1}
         variant={textVariant}
+        {...(variant === "small" ? { fontSize: 11 } : {})}
         fontWeight={"semiBold"}
         color={disabled ? "neutral.c50" : "neutral.c100"}
         mt={2}

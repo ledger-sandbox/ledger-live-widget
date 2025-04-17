@@ -13,14 +13,14 @@ type Props = {
 };
 
 // Animated bar displaying a bar filling itself with a color until it reaches the progress percentage.
-function ProgressBar({
+const ProgressBar: React.FC<Props> = ({
   style,
   height,
   backgroundColor,
   progressColor,
   progress,
   animationDurationMs = 1000,
-}: Props) {
+}) => {
   const { colors } = useTheme();
 
   const animatedProgress = useSharedValue(0);
@@ -63,7 +63,7 @@ function ProgressBar({
       />
     </View>
   );
-}
+};
 
 ProgressBar.defaultProps = {
   height: 6,

@@ -372,6 +372,7 @@ export default function BaseNavigator() {
               ),
               headerLeft: () => <NavigationHeaderBackButton />,
               headerRight: () => null,
+              cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
             };
           }}
         />
@@ -420,7 +421,6 @@ export default function BaseNavigator() {
           options={{
             title: t("analytics.allocation.title"),
             headerRight: () => null,
-            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
           }}
         />
         <Stack.Screen
@@ -429,7 +429,6 @@ export default function BaseNavigator() {
           options={{
             title: t("analytics.operations.title"),
             headerRight: () => null,
-            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
           }}
         />
 
