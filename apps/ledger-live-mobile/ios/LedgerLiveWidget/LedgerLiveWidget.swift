@@ -79,7 +79,7 @@ struct NFTWidget: Widget {
         }
         .configurationDisplayName("NFT Widget")
         .description("Displays your favorite NFT.")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge]) // Use the correct cases
+        .supportedFamilies([.systemSmall, .systemLarge]) // Use the correct cases
         .disableContentMarginsIfNeeded()
     }
 }
