@@ -39,6 +39,7 @@
 		E55EFC09114D43B3AB041882 /* FontAwesome5_Pro_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 991AA9919E4840DBB799E117 /* FontAwesome5_Pro_Solid.ttf */; };
 		E85A22C62B17E835005A8E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E85A22C52B17E835005A8E6D /* LaunchScreen.storyboard */; };
 		E92D8D152DB911E100A4D657 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E92D8D132DB911E100A4D657 /* Localizable.strings */; };
+		E935495F2DB942D200260BD9 /* ActionsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935495E2DB942D200260BD9 /* ActionsWidget.swift */; };
 		E9558EFF2AF93CD200BBEB55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9558F012AF93CD200BBEB55 /* InfoPlist.strings */; };
 		F45A09B01925C0C58A9D40CE /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6562F0F2E65142E04A9EDDEB /* ExpoModulesProvider.swift */; };
 		F837348722721A48009D747A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F837348622721A48009D747A /* JavaScriptCore.framework */; };
@@ -158,6 +159,7 @@
 		E92D8D1D2DB911FA00A4D657 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E92D8D1E2DB911FB00A4D657 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E92D8D1F2DB911FC00A4D657 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E935495E2DB942D200260BD9 /* ActionsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsWidget.swift; sourceTree = "<group>"; };
 		E9558F002AF93CD200BBEB55 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9558F022AF93CDA00BBEB55 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9558F032AF93CDB00BBEB55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -380,8 +382,8 @@
 		CA8FBF862DB8E09800E994E6 /* LedgerLiveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				E935495E2DB942D200260BD9 /* ActionsWidget.swift */,
 				CA8FBF7F2DB8E09800E994E6 /* AppIntent.swift */,
-				E9532D882DB92B2400224DE4 /* ActionsWidget.swift */,
 				CA8FBF802DB8E09800E994E6 /* Assets.xcassets */,
 				CA8FBF812DB8E09800E994E6 /* Info.plist */,
 				CA8FBF822DB8E09800E994E6 /* LedgerLiveWidget.swift */,
@@ -529,7 +531,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8FBF8C2DB8E09800E994E6 /* Assets.xcassets in Resources */,
-				E9532D8D2DB92C1D00224DE4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,9 +757,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8FBF872DB8E09800E994E6 /* AppIntent.swift in Sources */,
-				E9532D892DB92B2400224DE4 /* ActionsWidget.swift in Sources */,
 				CA8FBF882DB8E09800E994E6 /* LedgerLiveWidget.swift in Sources */,
 				CA8FBF892DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift in Sources */,
+				E935495F2DB942D200260BD9 /* ActionsWidget.swift in Sources */,
 				CA8FBF8A2DB8E09800E994E6 /* LedgerLiveWidgetControl.swift in Sources */,
 				CA8FBF8B2DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift in Sources */,
 			);
