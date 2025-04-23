@@ -37,14 +37,14 @@ static NSString *const iOSPushAutoEnabledKey = @"iOSPushAutoEnabled";
 
   UIMutableApplicationShortcutItem *swap = [[UIMutableApplicationShortcutItem alloc]
       initWithType:@"com.ledger.swap"
-      localizedTitle:NSLocalizedString(@"Swap", nil)
+      localizedTitle:NSLocalizedString(@"SWAP", nil)
       localizedSubtitle:nil
       icon:iconSwap
       userInfo:@{ @"deeplink": @"ledgerlive://swap?deeplinkSource=quick_action" }];
 
   UIMutableApplicationShortcutItem *buy = [[UIMutableApplicationShortcutItem alloc]
       initWithType:@"com.ledger.buy"
-      localizedTitle:NSLocalizedString(@"Buy", nil)
+      localizedTitle:NSLocalizedString(@"BUY", nil)
       localizedSubtitle:nil
       icon:iconBuy
       userInfo:@{ @"deeplink": @"ledgerlive://buy?deeplinkSource=quick_action" }];

@@ -381,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8FBF7F2DB8E09800E994E6 /* AppIntent.swift */,
+				E9532D882DB92B2400224DE4 /* ActionsWidget.swift */,
 				CA8FBF802DB8E09800E994E6 /* Assets.xcassets */,
 				CA8FBF812DB8E09800E994E6 /* Info.plist */,
 				CA8FBF822DB8E09800E994E6 /* LedgerLiveWidget.swift */,
@@ -528,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8FBF8C2DB8E09800E994E6 /* Assets.xcassets in Resources */,
+				E9532D8D2DB92C1D00224DE4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8FBF872DB8E09800E994E6 /* AppIntent.swift in Sources */,
+				E9532D892DB92B2400224DE4 /* ActionsWidget.swift in Sources */,
 				CA8FBF882DB8E09800E994E6 /* LedgerLiveWidget.swift in Sources */,
 				CA8FBF892DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift in Sources */,
 				CA8FBF8A2DB8E09800E994E6 /* LedgerLiveWidgetControl.swift in Sources */,
@@ -977,14 +980,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -1110,14 +1107,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -1187,14 +1178,8 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -1265,14 +1250,8 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -1393,14 +1372,8 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					" ",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_CFLAGS = "$(inherited)  ";
+				OTHER_CPLUSPLUSFLAGS = "$(inherited)  ";
 				OTHER_LDFLAGS = "$(inherited)";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
