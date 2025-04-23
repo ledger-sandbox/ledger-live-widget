@@ -6,5 +6,6 @@
 */
 
 "Ledger Sync" = "Ledger Sync";
-"Swap" = "Échanger";
-"Buy" = "Acheter";
+"SEND" = "Envoyer";
+"BUY" = "Acheter";
+"SWAP" = "Echanger";
