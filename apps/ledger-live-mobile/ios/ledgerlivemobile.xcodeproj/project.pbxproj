@@ -34,6 +34,7 @@
 		CA8FBF8A2DB8E09800E994E6 /* LedgerLiveWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FBF842DB8E09800E994E6 /* LedgerLiveWidgetControl.swift */; };
 		CA8FBF8B2DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FBF852DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift */; };
 		CA8FBF8C2DB8E09800E994E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8FBF802DB8E09800E994E6 /* Assets.xcassets */; };
+		CAC2D25C2DB93DAF00A39A1E /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2D25B2DB93D9D00A39A1E /* Performance.swift */; };
 		D93C63AD261B4E7183B66B1C /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2397DC873B4F8E91B750A8 /* Inter-Regular.otf */; };
 		E466275BA70845F3AFE1D695 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D91EB0620BDE4709B6F44620 /* Inter-Bold.otf */; };
 		E55EFC09114D43B3AB041882 /* FontAwesome5_Pro_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 991AA9919E4840DBB799E117 /* FontAwesome5_Pro_Solid.ttf */; };
@@ -138,6 +139,7 @@
 		CA8FBF832DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerLiveWidgetBundle.swift; sourceTree = "<group>"; };
 		CA8FBF842DB8E09800E994E6 /* LedgerLiveWidgetControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerLiveWidgetControl.swift; sourceTree = "<group>"; };
 		CA8FBF852DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerLiveWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		CAC2D25B2DB93D9D00A39A1E /* Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 		CDD38AE8681742F38FB51EFC /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		CE7E1D553FBD49E0A85347D3 /* MuseoSans-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MuseoSans-Bold.otf"; path = "../assets/fonts/MuseoSans-Bold.otf"; sourceTree = "<group>"; };
 		CEDB8CDC561E4D4BBA7A64CD /* MuseoSans-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MuseoSans-SemiBold.otf"; path = "../assets/fonts/MuseoSans-SemiBold.otf"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				CA8FBF812DB8E09800E994E6 /* Info.plist */,
 				CA8FBF822DB8E09800E994E6 /* LedgerLiveWidget.swift */,
 				CA8FBF832DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift */,
+				CAC2D25B2DB93D9D00A39A1E /* Performance.swift */,
 				CA8FBF842DB8E09800E994E6 /* LedgerLiveWidgetControl.swift */,
 				CA8FBF852DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift */,
 			);
@@ -756,6 +759,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC2D25C2DB93DAF00A39A1E /* Performance.swift in Sources */,
 				CA8FBF872DB8E09800E994E6 /* AppIntent.swift in Sources */,
 				CA8FBF882DB8E09800E994E6 /* LedgerLiveWidget.swift in Sources */,
 				CA8FBF892DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift in Sources */,
