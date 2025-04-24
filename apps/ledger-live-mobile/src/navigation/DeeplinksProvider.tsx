@@ -155,6 +155,7 @@ const linkingOptions = () => ({
            * ie: "ledgerlive://discover/paraswap?theme=light" will open the catalog and the paraswap dapp with a light theme as parameter
            */
           [ScreenName.PlatformApp]: "discover/:platform",
+          [ScreenName.MarketDetail]: "market/:currencyId",
           [NavigatorName.Card]: {
             initialRouteName: ScreenName.Card,
             screens: {
@@ -292,6 +293,7 @@ const getOnboardingLinkingOptions = (acceptedTermsOfUse: boolean) => ({
           [NavigatorName.Base]: {
             screens: {
               [ScreenName.PostBuyDeviceScreen]: "hw-purchase-success",
+              [ScreenName.MarketDetail]: "market/:currencyId",
               /**
                * @params ?platform: string
                * ie: "ledgerlive://discover/protect?theme=light" will open the catalog and the protect dapp with a light theme as parameter
