@@ -15,7 +15,7 @@
   return NO;
 }
 
-RCT_EXTERN_METHOD(startLiveActivity:(NSString)tx)
+RCT_EXTERN_METHOD(startLiveActivity:(NSString)tx withCrypto:(NSString)crypto)
 RCT_EXTERN_METHOD(stopLiveActivity)
 
 @end

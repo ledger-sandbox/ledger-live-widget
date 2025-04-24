@@ -50,7 +50,7 @@ function OnboardingStepWelcome({ navigation }: NavigationProps) {
     i18n: { language: locale },
   } = useTranslation();
 
-  const onStartActivity = async () => {
+  const onStartActivity = async (crypto: string) => {
     console.log("onStartActivity", LedgerLiveWidgetModule.startLiveActivity);
     if (!LedgerLiveWidgetModule) {
       console.log("LedgerLiveWidgetModule is not available");
@@ -58,6 +58,7 @@ function OnboardingStepWelcome({ navigation }: NavigationProps) {
     }
     LedgerLiveWidgetModule.startLiveActivity(
       "0xd9e2ec02257207c329f59808e33f1be392096b4a62e617b25ee5faeb1b7f0692",
+      crypto,
     );
   };
 
@@ -220,12 +221,22 @@ function OnboardingStepWelcome({ navigation }: NavigationProps) {
           <Button
             type="main"
             size="large"
-            onPress={onStartActivity}
+            onPress={() => onStartActivity("Btc")}
             mt={0}
             mb={7}
             testID="onboarding-getStarted-button"
           >
-            {"Start Activity"}
+            {"Start BTC"}
+          </Button>
+          <Button
+            type="main"
+            size="large"
+            onPress={() => onStartActivity("Eth")}
+            mt={0}
+            mb={7}
+            testID="onboarding-getStarted-button"
+          >
+            {"Start ETH"}
           </Button>
           <Button
             type="color"
