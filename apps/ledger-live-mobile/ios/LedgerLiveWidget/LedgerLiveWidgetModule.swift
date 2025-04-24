@@ -18,9 +18,10 @@ class LedgerLiveWidgetModule: NSObject {
   }
 
   @objc
-  func startLiveActivity(_ tx: String, withCrypto crypto: String) -> Void {
+  func startLiveActivity(_ tx: String, withCrypto crypto: String, withNetwork network: String) -> Void {
     print("Starting with tx :", tx)
     print("Starting with crypto :", crypto)
+    print("Starting with network :", network)
     if (!areActivitiesEnabled()) {
       // User disabled Live Activities for the app, nothing to do
       return
@@ -33,8 +34,8 @@ class LedgerLiveWidgetModule: NSObject {
       print("Doing Activity")
       // Request to start a new Live Activity with the content defined above
       let activity = try Activity.request(attributes: activityAttributes, content:activityContent)
-      self.fetchBlockNumber(tx: tx) { latestBlockNumber in
-        self.fetchTransaction(tx: tx) { txBlockNumber in
+      self.fetchBlockNumber(tx: tx, network: network) { latestBlockNumber in
+        self.fetchTransaction(tx: tx, network: network) { txBlockNumber in
           Task {
               print("Performing Task")
               print("latestBlockNumber : \(latestBlockNumber)")
@@ -48,8 +49,8 @@ class LedgerLiveWidgetModule: NSObject {
       self.timer?.schedule(deadline: .now(), repeating: 5.0)
       self.timer?.setEventHandler { [weak self] in
         print("Timer ongoing")
-        self?.fetchBlockNumber(tx: tx) { latestBlockNumber in
-          self?.fetchTransaction(tx: tx) { txBlockNumber in
+        self?.fetchBlockNumber(tx: tx, network: network) { latestBlockNumber in
+          self?.fetchTransaction(tx: tx, network: network) { txBlockNumber in
             Task {
                 print("Performing Task")
                 print("latestBlockNumber : \(latestBlockNumber)")
@@ -67,7 +68,7 @@ class LedgerLiveWidgetModule: NSObject {
   }
 
   @objc
-  func fetchBlockNumber(tx: String, completion: @escaping (Int) -> Void) {
+  func fetchBlockNumber(tx: String, network: String, completion: @escaping (Int) -> Void) {
     print("Fetching data with tx :", tx)
     let parameters = [
         "id": 1,
@@ -79,7 +80,7 @@ class LedgerLiveWidgetModule: NSObject {
     do {
       let postDataBlockNumber = try JSONSerialization.data(withJSONObject: parameters, options: [])
       
-      let url = URL(string: "https://eth-mainnet.g.alchemy.com/v2/vyXdALUMWU6nr5sYjdx1SDkscGGga75b")!
+      let url = URL(string: "https://\(network).g.alchemy.com/v2/vyXdALUMWU6nr5sYjdx1SDkscGGga75b")!
       var request = URLRequest(url: url)
       request.httpMethod = "POST"
       request.timeoutInterval = 10
@@ -111,7 +112,7 @@ class LedgerLiveWidgetModule: NSObject {
   }
 
   @objc
-  func fetchTransaction(tx: String, completion: @escaping (Int) -> Void) {
+  func fetchTransaction(tx: String, network: String, completion: @escaping (Int) -> Void) {
     print("Fetching data with tx :", tx)
     let parameters = [
         "id": 1,
@@ -126,7 +127,7 @@ class LedgerLiveWidgetModule: NSObject {
     do {
       let postDataBlockNumber = try JSONSerialization.data(withJSONObject: parameters, options: [])
       
-      let url = URL(string: "https://eth-mainnet.g.alchemy.com/v2/vyXdALUMWU6nr5sYjdx1SDkscGGga75b")!
+      let url = URL(string: "https://\(network).g.alchemy.com/v2/vyXdALUMWU6nr5sYjdx1SDkscGGga75b")!
       var request = URLRequest(url: url)
       request.httpMethod = "POST"
       request.timeoutInterval = 10

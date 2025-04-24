@@ -1,6 +1,6 @@
 import invariant from "invariant";
 import React, { memo, useCallback, useMemo } from "react";
-import { StyleSheet } from "react-native";
+import { NativeModules, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getMainAccount } from "@ledgerhq/live-common/account/index";
@@ -23,6 +23,25 @@ import { useTransactionDeviceAction } from "~/hooks/deviceActions";
 import logger from "~/logger";
 import { BaseNavigatorStackParamList } from "~/components/RootNavigator/types/BaseNavigator";
 
+const { LedgerLiveWidgetModule } = NativeModules;
+const currenciesSupported = [
+  {
+    id: "ethereum",
+    network: "eth-mainnet",
+    name: "Eth",
+  },
+  {
+    id: "ethereum_sepolia",
+    network: "eth-sepolia",
+    name: "Eth",
+  },
+  {
+    id: "avalanche_c_chain",
+    network: "avax-mainnet",
+    name: "Avax",
+  },
+];
+
 export type SignTransactionConnectDeviceProps = StackNavigatorProps<
   SignTransactionNavigatorParamList,
   ScreenName.SignTransactionConnectDevice
@@ -40,6 +59,14 @@ function ConnectDevice({ navigation, route }: SignTransactionConnectDeviceProps)
     transaction: route.params.transaction,
   }));
   const tokenCurrency = account.type === "TokenAccount" ? account.token : undefined;
+  const onStartActivity = async (crypto: string, network: string, txHash: string) => {
+    console.log("onStartActivity", LedgerLiveWidgetModule.startLiveActivity);
+    if (!LedgerLiveWidgetModule) {
+      console.log("LedgerLiveWidgetModule is not available");
+      return;
+    }
+    LedgerLiveWidgetModule.startLiveActivity(txHash, crypto, network);
+  };
   const handleTx = useCallback(
     (result: TransactionResult) => {
       try {
@@ -47,8 +74,13 @@ function ConnectDevice({ navigation, route }: SignTransactionConnectDeviceProps)
           throw result.transactionSignError;
         }
 
-        onSuccess(result.signedOperation);
-
+        console.log("signed", mainAccount.currency.id);
+        const cur = currenciesSupported.find(curr => curr.id === mainAccount.currency.id);
+        console.log("cur", cur);
+        if (cur) {
+          onStartActivity(cur.name, cur.network, result.signedOperation.operation.hash);
+          onSuccess(result.signedOperation);
+        }
         navigation.getParent<StackNavigatorNavigation<BaseNavigatorStackParamList>>().pop();
       } catch (error) {
         if (
@@ -63,7 +95,7 @@ function ConnectDevice({ navigation, route }: SignTransactionConnectDeviceProps)
         });
       }
     },
-    [onSuccess, navigation, route.params],
+    [mainAccount.currency.id, navigation, onSuccess, route.params],
   );
 
   const request = useMemo(
