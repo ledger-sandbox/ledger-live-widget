@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Flex, Text, Link as TextLink } from "@ledgerhq/native-ui";
 import Video from "react-native-video";
-import { Linking, StyleSheet } from "react-native";
+import { Linking, StyleSheet, NativeModules } from "react-native";
 import Svg, { Defs, LinearGradient, Rect, Stop } from "react-native-svg";
 import { useDispatch } from "react-redux";
 import useFeature from "@ledgerhq/live-common/featureFlags/useFeature";
@@ -21,6 +21,8 @@ import { BaseComposite, StackNavigatorProps } from "~/components/RootNavigator/t
 
 import videoSources from "../../../../assets/videos";
 import LanguageSelect from "../../SyncOnboarding/LanguageSelect";
+
+const { LedgerLiveWidgetModule } = NativeModules;
 
 const absoluteStyle = {
   position: "absolute" as const,
@@ -48,6 +50,22 @@ function OnboardingStepWelcome({ navigation }: NavigationProps) {
     i18n: { language: locale },
   } = useTranslation();
 
+  const onStartActivity = async () => {
+    console.log("onStartActivity", LedgerLiveWidgetModule.startLiveActivity);
+    if (!LedgerLiveWidgetModule) {
+      console.log("LedgerLiveWidgetModule is not available");
+      return;
+    }
+    LedgerLiveWidgetModule.startLiveActivity(
+      "0xd9e2ec02257207c329f59808e33f1be392096b4a62e617b25ee5faeb1b7f0692",
+    );
+  };
+
+  const onStopActivity = async () => {
+    console.log("onStopActivity", LedgerLiveWidgetModule);
+    LedgerLiveWidgetModule.stopLiveActivity();
+  };
+
   const onTermsLink = useCallback(
     () => Linking.openURL((urls.terms as Record<string, string>)[locale] || urls.terms.en),
     [locale],
@@ -61,6 +79,7 @@ function OnboardingStepWelcome({ navigation }: NavigationProps) {
     [locale],
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const next = useCallback(() => {
     acceptTerms();
     const entryPoints = llmAnalyticsOptInPromptFeature?.params?.entryPoints || [];
@@ -201,12 +220,22 @@ function OnboardingStepWelcome({ navigation }: NavigationProps) {
           <Button
             type="main"
             size="large"
-            onPress={next}
+            onPress={onStartActivity}
             mt={0}
             mb={7}
             testID="onboarding-getStarted-button"
           >
-            {t("onboarding.stepWelcome.start")}
+            {"Start Activity"}
+          </Button>
+          <Button
+            type="color"
+            size="large"
+            onPress={onStopActivity}
+            mt={0}
+            mb={7}
+            testID="onboarding-getStarted-button"
+          >
+            {"Stop Activity"}
           </Button>
           <Text variant="small" textAlign="center" color="neutral.c100">
             {t("onboarding.stepWelcome.terms")}
