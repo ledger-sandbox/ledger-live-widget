@@ -34,6 +34,10 @@
 		CA8FBF8A2DB8E09800E994E6 /* LedgerLiveWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FBF842DB8E09800E994E6 /* LedgerLiveWidgetControl.swift */; };
 		CA8FBF8B2DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FBF852DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift */; };
 		CA8FBF8C2DB8E09800E994E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8FBF802DB8E09800E994E6 /* Assets.xcassets */; };
+		D1047B792DB9487600AC5173 /* WalletTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */; };
+		D1047B7A2DBA252500AC5173 /* WalletTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */; };
+		D15B9F902DBA5FDF00BAF09A /* WalletWidgetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B9F8F2DBA5FD600BAF09A /* WalletWidgetModule.swift */; };
+		D15B9F922DBA600200BAF09A /* WalletWidgetModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B9F912DBA5FF700BAF09A /* WalletWidgetModule.m */; };
 		CAC2D25C2DB93DAF00A39A1E /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2D25B2DB93D9D00A39A1E /* Performance.swift */; };
 		D93C63AD261B4E7183B66B1C /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2397DC873B4F8E91B750A8 /* Inter-Regular.otf */; };
 		E466275BA70845F3AFE1D695 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D91EB0620BDE4709B6F44620 /* Inter-Bold.otf */; };
@@ -143,6 +147,9 @@
 		CDD38AE8681742F38FB51EFC /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		CE7E1D553FBD49E0A85347D3 /* MuseoSans-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MuseoSans-Bold.otf"; path = "../assets/fonts/MuseoSans-Bold.otf"; sourceTree = "<group>"; };
 		CEDB8CDC561E4D4BBA7A64CD /* MuseoSans-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MuseoSans-SemiBold.otf"; path = "../assets/fonts/MuseoSans-SemiBold.otf"; sourceTree = "<group>"; };
+		D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTrackerWidget.swift; sourceTree = "<group>"; };
+		D15B9F8F2DBA5FD600BAF09A /* WalletWidgetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletWidgetModule.swift; sourceTree = "<group>"; };
+		D15B9F912DBA5FF700BAF09A /* WalletWidgetModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletWidgetModule.m; sourceTree = "<group>"; };
 		D249644B66FAECFBB42408A6 /* Pods-ledgerlivemobile.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledgerlivemobile.staging.xcconfig"; path = "Target Support Files/Pods-ledgerlivemobile/Pods-ledgerlivemobile.staging.xcconfig"; sourceTree = "<group>"; };
 		D66478ECD0864D09A3838EE2 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		D91EB0620BDE4709B6F44620 /* Inter-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.otf"; path = "../assets/fonts/Inter-Bold.otf"; sourceTree = "<group>"; };
@@ -243,6 +250,8 @@
 		13B07FAE1A68108700A75B9A /* ledgerlivemobile */ = {
 			isa = PBXGroup;
 			children = (
+				D15B9F912DBA5FF700BAF09A /* WalletWidgetModule.m */,
+				D15B9F8F2DBA5FD600BAF09A /* WalletWidgetModule.swift */,
 				17F58473269C64870070C475 /* RCTBluetoothHelperModule.h */,
 				17F58471269C64670070C475 /* RCTBluetoothHelperModule.m */,
 				2402D074219C2E6600276138 /* ledgerlivemobile.entitlements */,
@@ -384,6 +393,7 @@
 		CA8FBF862DB8E09800E994E6 /* LedgerLiveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */,
 				E935495E2DB942D200260BD9 /* ActionsWidget.swift */,
 				CA8FBF7F2DB8E09800E994E6 /* AppIntent.swift */,
 				CA8FBF802DB8E09800E994E6 /* Assets.xcassets */,
@@ -748,8 +758,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3407D5D9215D2AB800C9D40B /* NeededForBLE.swift in Sources */,
+				D15B9F902DBA5FDF00BAF09A /* WalletWidgetModule.swift in Sources */,
+				D15B9F922DBA600200BAF09A /* WalletWidgetModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				17F58472269C64670070C475 /* RCTBluetoothHelperModule.m in Sources */,
+				D1047B7A2DBA252500AC5173 /* WalletTrackerWidget.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				F45A09B01925C0C58A9D40CE /* ExpoModulesProvider.swift in Sources */,
 			);
@@ -764,6 +777,7 @@
 				CA8FBF882DB8E09800E994E6 /* LedgerLiveWidget.swift in Sources */,
 				CA8FBF892DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift in Sources */,
 				E935495F2DB942D200260BD9 /* ActionsWidget.swift in Sources */,
+				D1047B792DB9487600AC5173 /* WalletTrackerWidget.swift in Sources */,
 				CA8FBF8A2DB8E09800E994E6 /* LedgerLiveWidgetControl.swift in Sources */,
 				CA8FBF8B2DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift in Sources */,
 			);

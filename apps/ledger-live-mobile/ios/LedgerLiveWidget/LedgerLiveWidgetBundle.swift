@@ -16,6 +16,7 @@ struct LedgerLiveWidgetBundle: WidgetBundle {
         ActionsWidget()
         LedgerLiveWidgetControl()
         LedgerLiveWidgetLiveActivity()
+        WalletWidget()
         PerformanceWidget()
     }
 }

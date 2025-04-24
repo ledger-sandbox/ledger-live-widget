@@ -1,4 +1,4 @@
-import React, { useCallback, useState, memo } from "react";
+import React, { useCallback, useState, memo, useEffect } from "react";
 import { Flex, Text } from "@ledgerhq/native-ui";
 import { Currency } from "@ledgerhq/types-cryptoassets";
 import { Portfolio } from "@ledgerhq/types-live";
@@ -24,6 +24,10 @@ import { readOnlyModeEnabledSelector } from "~/reducers/settings";
 import EmptyGraph from "~/icons/EmptyGraph";
 import { Item } from "./Graph/types";
 import { Pressable } from "react-native";
+
+import { updateWalletWidget } from "~/utils/widget";
+import { getCurrencyUnitFormattedString } from "./currencyUnitValueString";
+import { useLocale } from "~/context/Locale";
 
 const { width } = getWindowDimensions();
 
@@ -156,6 +160,21 @@ function GraphCard({
   const onItemHover = (item?: Item | null) => {
     setItemHover(item);
   };
+  const { locale } = useLocale();
+
+  useEffect(() => {
+    if (balanceHistory && balanceHistory.length > 0) {
+      const lastItem = balanceHistory[balanceHistory.length - 1];
+      updateWalletWidget({
+        price: getCurrencyUnitFormattedString({
+          unit,
+          value: lastItem.value,
+          locale: locale,
+        }),
+        percentage: countervalueChange.percentage ?? 100,
+      });
+    }
+  }, [balanceHistory, countervalueChange, locale, unit]);
 
   return (
     <Flex>
