@@ -68,7 +68,7 @@ struct PerformanceWidgetEntryView: View {
 
                 Spacer()
             }
-            .padding(.bottom, 4)
+            .padding(.bottom, 8)
 
             HStack(spacing: 12) {
                 ForEach(entry.topMovers) { asset in

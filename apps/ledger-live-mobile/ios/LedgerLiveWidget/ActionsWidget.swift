@@ -1,4 +1,3 @@
-//
 //  ActionsWidget.swift
 //  ledgerlivemobile
 //
@@ -6,9 +5,7 @@
 //
 
 import Foundation
-import SafariServices
 import SwiftUI
-import SwiftUICore
 import WidgetKit
 
 // MARK: - Timeline Entry
@@ -40,70 +37,62 @@ struct ActionsWidgetEntryView: View {
     var entry: ActionsWidgetEntry
 
     var body: some View {
-        ZStack {
-            Color.black
-            VStack {
-                headerView()
-                actionLinksView()
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .center) {
+                Image("Image")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(.blue)
+
+                Text("Quick Actions")
+                    .font(.headline)
+                    .fontWeight(.semibold)
+
+                Spacer()
             }
-        }
-    }
+            .padding(.bottom, 4)
 
-    // MARK: - Header View
+            Spacer() // Add a spacer to push the CTAs row down
 
-    private func headerView() -> some View {
-        HStack {
-            Image("Image")
-                .resizable()
-                .frame(width: 24, height: 24)
-                .padding(14)
-            Spacer()
-        }
-    }
-
-    // MARK: - Action Links View
-
-    private func actionLinksView() -> some View {
-        GeometryReader { geometry in
-            let totalSpacing: CGFloat = 16 * 2
-            let interItemSpacing: CGFloat = 12 * 2
-            let itemWidth = (geometry.size.width - totalSpacing - interItemSpacing) / 3
-
-            HStack(spacing: 12) {
-                actionLink(title: NSLocalizedString("SEND", comment: "Send action"), url: "ledgerlive://send", iconName: "paperplane.fill", width: itemWidth)
-                actionLink(title: NSLocalizedString("BUY", comment: "Buy action"), url: "ledgerlive://buy", iconName: "plus.circle.fill", width: itemWidth)
-                actionLink(title: NSLocalizedString("SWAP", comment: "Swap action"), url: "ledgerlive://swap", iconName: "arrow.2.circlepath", width: itemWidth)
+            HStack(spacing: 20) { // Increase spacing between buttons
+                actionLink(title: "SEND", url: "ledgerlive://send", iconName: "paperplane.fill")
+                actionLink(title: "BUY", url: "ledgerlive://buy", iconName: "plus.circle.fill")
+                actionLink(title: "SWAP", url: "ledgerlive://swap", iconName: "arrow.2.circlepath")
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 16) // Add horizontal padding for additional spacing
+
+            Spacer() // Add a spacer to push the CTAs row up
         }
-        .frame(height: 80)
+        .padding()
+        .background(Color.black.opacity(0.6))
     }
 
-    // MARK: - Action Link
-
-    private func actionLink(title: String, url: String, iconName: String, width: CGFloat) -> some View {
+    private func actionLink(title: String, url: String, iconName: String) -> some View {
         Link(destination: URL(string: url)!) {
-            ZStack {
-                Rectangle()
-                    .fill(Color.black.opacity(0.6))
-                    .cornerRadius(8)
-                VStack {
+            VStack(spacing: 4) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.black.opacity(0.6))
+                        .frame(width: 60, height: 60)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, lineWidth: 1.5)
+                        )
+
                     Image(systemName: iconName)
                         .resizable()
                         .scaledToFit()
                         .foregroundColor(.white)
-                        .frame(width: 18, height: 18)
-                    Text(title)
-                        .font(.system(size: 14))
-                        .foregroundColor(.white)
+                        .frame(width: 24, height: 24)
                 }
-                .padding(.vertical, 8)
+
+                Text(title)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding(.top, 4)
             }
-            .frame(width: width, height: 64)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.white, lineWidth: 1.5)
-            )
+            .frame(maxWidth: .infinity)
         }
     }
 }
