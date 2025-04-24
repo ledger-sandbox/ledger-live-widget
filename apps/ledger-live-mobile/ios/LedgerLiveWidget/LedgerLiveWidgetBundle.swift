@@ -12,6 +12,7 @@ import SwiftUI
 @main
 struct LedgerLiveWidgetBundle: WidgetBundle {
     var body: some Widget {
+      MarketWidget()
         NFTWidget()
         ActionsWidget()
         LedgerLiveWidgetControl()
