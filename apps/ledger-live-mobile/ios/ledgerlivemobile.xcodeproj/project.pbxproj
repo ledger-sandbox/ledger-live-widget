@@ -13,7 +13,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		17F58472269C64670070C475 /* RCTBluetoothHelperModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F58471269C64670070C475 /* RCTBluetoothHelperModule.m */; };
 		2372D3D5180104DBED4E22EE /* libPods-ledgerlivemobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C4672E151A9F9D4A18DB00 /* libPods-ledgerlivemobile.a */; };
-		293D09352DB917250068AC6B /* LineChartView in Frameworks */ = {isa = PBXBuildFile; productRef = 293D09342DB917250068AC6B /* LineChartView */; };
 		293D09372DBA413E0068AC6B /* SelectCryptoCurrencyIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D09362DBA413C0068AC6B /* SelectCryptoCurrencyIntentHandler.swift */; };
 		293D093A2DBA43D90068AC6B /* SelectCryptoCurrencyIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D09392DBA43D80068AC6B /* SelectCryptoCurrencyIntent.swift */; };
 		293D093E2DBA6DE70068AC6B /* MarketWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D093D2DBA6DE70068AC6B /* MarketWidget.swift */; };
@@ -29,6 +28,7 @@
 		BAE7949027D7C46A00C465F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAE7948F27D7C46A00C465F5 /* GoogleService-Info.plist */; };
 		BC25CCBE6BEA4D62BE203C17 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F63C9E4AC284203A95B417E /* libz.tbd */; };
 		BC26C23ED1C649E7849FF99A /* HMAlphaMono-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1EA470840B7C44A3BF38FA4A /* HMAlphaMono-Medium.otf */; };
+		CA3381CD2DBA726D00CF8148 /* NFTWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3381CC2DBA726600CF8148 /* NFTWidget.swift */; };
 		CA8FBF542DB8D8F800E994E6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8FBF532DB8D8F800E994E6 /* WidgetKit.framework */; };
 		CA8FBF562DB8D8F800E994E6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8FBF552DB8D8F800E994E6 /* SwiftUI.framework */; };
 		CA8FBF672DB8D8F900E994E6 /* LedgerLiveWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CA8FBF522DB8D8F800E994E6 /* LedgerLiveWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -38,6 +38,10 @@
 		CA8FBF8B2DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8FBF852DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift */; };
 		CA8FBF8C2DB8E09800E994E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8FBF802DB8E09800E994E6 /* Assets.xcassets */; };
 		CAC2D25C2DB93DAF00A39A1E /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2D25B2DB93D9D00A39A1E /* Performance.swift */; };
+		D1047B792DB9487600AC5173 /* WalletTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */; };
+		D1047B7A2DBA252500AC5173 /* WalletTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */; };
+		D15B9F902DBA5FDF00BAF09A /* WalletWidgetModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B9F8F2DBA5FD600BAF09A /* WalletWidgetModule.swift */; };
+		D15B9F922DBA600200BAF09A /* WalletWidgetModule.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B9F912DBA5FF700BAF09A /* WalletWidgetModule.m */; };
 		D93C63AD261B4E7183B66B1C /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2397DC873B4F8E91B750A8 /* Inter-Regular.otf */; };
 		E466275BA70845F3AFE1D695 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D91EB0620BDE4709B6F44620 /* Inter-Bold.otf */; };
 		E55EFC09114D43B3AB041882 /* FontAwesome5_Pro_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 991AA9919E4840DBB799E117 /* FontAwesome5_Pro_Solid.ttf */; };
@@ -133,6 +137,7 @@
 		C44A2A704D1E428CB7694186 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		C630F76F0E1C857DA405027E /* Pods-ledgerlivemobile-ledgerlivemobileTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledgerlivemobile-ledgerlivemobileTests.staging.xcconfig"; path = "Target Support Files/Pods-ledgerlivemobile-ledgerlivemobileTests/Pods-ledgerlivemobile-ledgerlivemobileTests.staging.xcconfig"; sourceTree = "<group>"; };
 		C7C5BB743ED04E53A2323979 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		CA3381CC2DBA726600CF8148 /* NFTWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFTWidget.swift; sourceTree = "<group>"; };
 		CA4B7558A3274D76ACA6E26C /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		CA8FBF522DB8D8F800E994E6 /* LedgerLiveWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LedgerLiveWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8FBF532DB8D8F800E994E6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -148,6 +153,9 @@
 		CDD38AE8681742F38FB51EFC /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		CE7E1D553FBD49E0A85347D3 /* MuseoSans-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MuseoSans-Bold.otf"; path = "../assets/fonts/MuseoSans-Bold.otf"; sourceTree = "<group>"; };
 		CEDB8CDC561E4D4BBA7A64CD /* MuseoSans-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MuseoSans-SemiBold.otf"; path = "../assets/fonts/MuseoSans-SemiBold.otf"; sourceTree = "<group>"; };
+		D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTrackerWidget.swift; sourceTree = "<group>"; };
+		D15B9F8F2DBA5FD600BAF09A /* WalletWidgetModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletWidgetModule.swift; sourceTree = "<group>"; };
+		D15B9F912DBA5FF700BAF09A /* WalletWidgetModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletWidgetModule.m; sourceTree = "<group>"; };
 		D249644B66FAECFBB42408A6 /* Pods-ledgerlivemobile.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledgerlivemobile.staging.xcconfig"; path = "Target Support Files/Pods-ledgerlivemobile/Pods-ledgerlivemobile.staging.xcconfig"; sourceTree = "<group>"; };
 		D66478ECD0864D09A3838EE2 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		D91EB0620BDE4709B6F44620 /* Inter-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.otf"; path = "../assets/fonts/Inter-Bold.otf"; sourceTree = "<group>"; };
@@ -203,7 +211,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8FBF562DB8D8F800E994E6 /* SwiftUI.framework in Frameworks */,
-				293D09352DB917250068AC6B /* LineChartView in Frameworks */,
 				CA8FBF542DB8D8F800E994E6 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +256,8 @@
 		13B07FAE1A68108700A75B9A /* ledgerlivemobile */ = {
 			isa = PBXGroup;
 			children = (
+				D15B9F912DBA5FF700BAF09A /* WalletWidgetModule.m */,
+				D15B9F8F2DBA5FD600BAF09A /* WalletWidgetModule.swift */,
 				17F58473269C64870070C475 /* RCTBluetoothHelperModule.h */,
 				17F58471269C64670070C475 /* RCTBluetoothHelperModule.m */,
 				2402D074219C2E6600276138 /* ledgerlivemobile.entitlements */,
@@ -390,6 +399,8 @@
 		CA8FBF862DB8E09800E994E6 /* LedgerLiveWidget */ = {
 			isa = PBXGroup;
 			children = (
+				CA3381CC2DBA726600CF8148 /* NFTWidget.swift */,
+				D1047B782DB9485E00AC5173 /* WalletTrackerWidget.swift */,
 				293D09392DBA43D80068AC6B /* SelectCryptoCurrencyIntent.swift */,
 				293D09362DBA413C0068AC6B /* SelectCryptoCurrencyIntentHandler.swift */,
 				E935495E2DB942D200260BD9 /* ActionsWidget.swift */,
@@ -759,8 +770,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3407D5D9215D2AB800C9D40B /* NeededForBLE.swift in Sources */,
+				D15B9F902DBA5FDF00BAF09A /* WalletWidgetModule.swift in Sources */,
+				D15B9F922DBA600200BAF09A /* WalletWidgetModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				17F58472269C64670070C475 /* RCTBluetoothHelperModule.m in Sources */,
+				D1047B7A2DBA252500AC5173 /* WalletTrackerWidget.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				F45A09B01925C0C58A9D40CE /* ExpoModulesProvider.swift in Sources */,
 			);
@@ -774,9 +788,11 @@
 				CAC2D25C2DB93DAF00A39A1E /* Performance.swift in Sources */,
 				CA8FBF872DB8E09800E994E6 /* AppIntent.swift in Sources */,
 				293D093A2DBA43D90068AC6B /* SelectCryptoCurrencyIntent.swift in Sources */,
+				CA3381CD2DBA726D00CF8148 /* NFTWidget.swift in Sources */,
 				293D093E2DBA6DE70068AC6B /* MarketWidget.swift in Sources */,
 				CA8FBF892DB8E09800E994E6 /* LedgerLiveWidgetBundle.swift in Sources */,
 				E935495F2DB942D200260BD9 /* ActionsWidget.swift in Sources */,
+				D1047B792DB9487600AC5173 /* WalletTrackerWidget.swift in Sources */,
 				CA8FBF8A2DB8E09800E994E6 /* LedgerLiveWidgetControl.swift in Sources */,
 				CA8FBF8B2DB8E09800E994E6 /* LedgerLiveWidgetLiveActivity.swift in Sources */,
 			);
@@ -1755,13 +1771,6 @@
 			relativePath = "../../../../../Downloads/LineChartView-main";
 		};
 /* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		293D09342DB917250068AC6B /* LineChartView */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LineChartView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

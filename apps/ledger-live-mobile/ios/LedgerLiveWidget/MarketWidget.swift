@@ -8,7 +8,6 @@
 
 import WidgetKit
 import SwiftUI
-import LineChartView
 import Charts
 
 struct ApiData: Decodable {
@@ -16,7 +15,7 @@ struct ApiData: Decodable {
   var HIGH: Double
 }
 
-struct Data: Identifiable {
+struct Data2: Identifiable {
   var id: UUID = UUID()
   var TIMESTAMP: Int
   var HIGH: Double
@@ -53,7 +52,7 @@ struct Provider: AppIntentTimelineProvider {
       let (data, _) = try await URLSession.shared.data(for: request)
       let decodedResponse = try JSONDecoder().decode(ApiResponse.self, from: data)
       print(decodedResponse)
-      let entry = SimpleEntry(date: Date(), data: decodedResponse.Data.map { data in Data(TIMESTAMP: data.TIMESTAMP, HIGH: data.HIGH)})
+      let entry = SimpleEntry(date: Date(), data: decodedResponse.Data.map { data in Data2(TIMESTAMP: data.TIMESTAMP, HIGH: data.HIGH)})
       return Timeline(entries: [entry], policy: .atEnd)
     } catch {
       print("fail \(error)")
@@ -77,7 +76,7 @@ struct Provider: AppIntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let data: [Data]
+    let data: [Data2]
 }
 
 func calculateOverallPercentageIncrease(values: [Double]) -> Double? {
