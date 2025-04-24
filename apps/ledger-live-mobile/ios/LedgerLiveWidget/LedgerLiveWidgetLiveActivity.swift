@@ -33,9 +33,6 @@ struct LedgerLiveWidgetAttributes: ActivityAttributes {
 }
 
 struct LedgerLiveWidgetLiveActivity: Widget {
-  @State private var showGG = false // State to show "GG" when progress is completed
-  @State private var previousValidated = -1
-
   var body: some WidgetConfiguration {
     ActivityConfiguration(for: LedgerLiveWidgetAttributes.self) { context in
       // Lock screen/banner UI goes here
@@ -70,25 +67,31 @@ struct LedgerLiveWidgetLiveActivity: Widget {
         }
 
         DynamicIslandExpandedRegion(.bottom) {
-          if showGG {
-            Text("GG Well Done")
-              .font(.title)
-              .foregroundColor(.green)
-              .transition(.opacity)
-              .padding(8)
-          } else {
-            Text("Tx in progress: \(context.attributes.tx)")
-              .font(.caption)
-              .foregroundColor(.white)
+          let validated = context.state.blocksValidated ?? 0
 
-            Text("block: \(Double(context.state.blocksValidated ?? -1))")
-              .font(.caption)
-              .foregroundColor(.white)
-            ProgressView(
-              value: Double(context.state.blocksValidated ?? -1),
-              total: 10
-            )
-            .tint(context.state.blocksValidated == 10 ? Color.green : Color(red: 187 / 255, green: 176 / 255, blue: 255 / 255))
+          VStack {
+            // Utilisation de l'opérateur ternaire
+            HStack(spacing: 4) {
+              Text(validated >= 10 ? "Your transaction has been validated!" : "Your transaction is being validated")
+                .font(.caption)
+                .foregroundColor(validated >= 10 ? .green : .white) // Texte vert si validé
+
+              Image(systemName: validated >= 10 ? "checkmark.seal" : "gear")
+                .symbolEffect(.rotate.clockwise.wholeSymbol, options: .repeating)
+                .foregroundColor(validated >= 10 ? .green : .white)
+            }
+
+            // Affichage du ProgressView et du texte de validation si < 10
+
+            VStack(alignment: .leading, spacing: 4) {
+              ProgressView(value: Double(validated), total: 10)
+                .tint(validated >= 10 ?.green : Color(red: 187 / 255, green: 176 / 255, blue: 255 / 255))
+                .padding(.bottom, 2)
+
+              Text("\(validated) / 10 blocks validated")
+                .font(.caption2)
+                .foregroundColor(validated >= 10 ? .green : .white.opacity(0.7))
+            }
             .padding(8)
           }
         }
@@ -97,16 +100,17 @@ struct LedgerLiveWidgetLiveActivity: Widget {
       compactLeading: {
         Image(context.attributes.crypto).resizable().frame(width: 24, height: 24)
       } compactTrailing: {
+        let validated = context.state.blocksValidated ?? 0
         ProgressView(
           value: Double(context.state.blocksValidated ?? -1),
           total: 10
         ) {
-          Text(String(context.state.blocksValidated ?? -1))
+          Text(String(validated ?? -1))
             .font(.caption)
             .foregroundColor(.white)
         }
         .progressViewStyle(.circular)
-        .tint(Color(red: 187 / 255, green: 176 / 255, blue: 255 / 255))
+        .tint(validated >= 10 ? Color.green : Color(red: 187 / 255, green: 176 / 255, blue: 255 / 255))
 
       } minimal: {
         Image(systemName: "timer")
