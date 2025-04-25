@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, NativeModules } from "react-native";
 import { useSelector } from "react-redux";
 import { CompositeScreenProps, useTheme } from "@react-navigation/native";
 import { getAccountCurrency } from "@ledgerhq/live-common/account/helpers";
@@ -20,18 +20,51 @@ type Props = CompositeScreenProps<
   StackNavigatorProps<SendFundsNavigatorStackParamList, ScreenName.SendValidationSuccess>,
   StackNavigatorProps<BaseNavigatorStackParamList>
 >;
+const { LedgerLiveWidgetModule } = NativeModules;
+const currenciesSupported = [
+  {
+    id: "ethereum",
+    network: "eth-mainnet",
+    name: "Eth",
+  },
+  {
+    id: "ethereum_sepolia",
+    network: "eth-sepolia",
+    name: "Eth",
+  },
+  {
+    id: "avalanche_c_chain",
+    network: "avax-mainnet",
+    name: "Avax",
+  },
+];
 
 export default function ValidationSuccess({ navigation, route }: Props) {
   const { colors } = useTheme();
   const { account, parentAccount } = useSelector(accountScreenSelector(route));
 
   const currency = account ? getAccountCurrency(account) : null;
+
+  const onStartActivity = async (crypto: string, network: string, txHash: string) => {
+    console.log("onStartActivity", LedgerLiveWidgetModule.startLiveActivity);
+    if (!LedgerLiveWidgetModule) {
+      console.log("LedgerLiveWidgetModule is not available");
+      return;
+    }
+    LedgerLiveWidgetModule.startLiveActivity(txHash, crypto, network);
+  };
+
   useEffect(() => {
     if (!account) return;
     let result = route.params?.result;
     if (!result) return;
     result = result.subOperations && result.subOperations[0] ? result.subOperations[0] : result;
-
+    console.log("ValidationSuccess", result.hash, currency?.id);
+    const cur = currenciesSupported.find(curr => curr.id === currency?.id);
+    console.log("cur", cur);
+    if (cur) {
+      onStartActivity(cur.name, cur.network, result.hash);
+    }
     // FIXME: IT LOOKS LIKE A COMPONENT DID MOUNT BUT NOT SURE AT ALL IF
     // IT NEEDS TO BE RERUN WHEN DEPS CHANGE
     // eslint-disable-next-line react-hooks/exhaustive-deps

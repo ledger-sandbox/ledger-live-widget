@@ -102,10 +102,10 @@ struct LedgerLiveWidgetLiveActivity: Widget {
       } compactTrailing: {
         let validated = context.state.blocksValidated ?? 0
         ProgressView(
-          value: Double(context.state.blocksValidated ?? -1),
+          value: Double(context.state.blocksValidated ?? 0),
           total: 10
         ) {
-          Text(String(validated ?? -1))
+          Text(String(validated ?? 0))
             .font(.caption)
             .foregroundColor(.white)
         }
